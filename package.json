@@ -1,7 +1,7 @@
 {
-  "name": "verdaccio-auth-ldap",
+  "name": "verdaccio-simpleldap",
   "version": "0.0.1",
-  "description": "Verdaccio auth plugin for ldap login",
+  "description": "Verdaccio plugin for simple ldap auth",
   "main": "index.js",
   "files": [
     "lib/"

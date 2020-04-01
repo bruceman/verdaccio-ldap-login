@@ -1,20 +1,31 @@
-# verdaccio-auth-ldap
+# verdaccio-simpleldap
 
-> Verdaccio auth plugin to integrate ldap authenticate
+> Verdaccio plugin for simple ldap authenticate
 
 ---
 
-## development
+## Installation
 
-See the [verdaccio contributing guide](https://github.com/verdaccio/verdaccio/blob/master/CONTRIBUTING.md) for instructions setting up your development environment. 
-Once you have completed that, use the following npm tasks.
+> npm install verdaccio-simpleldap
 
-  - `npm run build`
+## Usage
+Config Verdaccio auth section.
+- url: the ldap server url
+- dn: user name pattern, `{}` will be replaced with user name.
 
-    Build a distributable archive
+```
+auth:
+   simpleldap:
+     url: ldap://127.0.0.1:389/
+     dn: "uid={},ou=people,dc=com"
+```
 
-  - `npm run test`
 
-    Run unit test
+## Development
 
-For more information about any of these commands run `npm run ${task} -- --help`.
+> npm run build
+
+
+## Refers
+- https://verdaccio.org/docs/en/plugin-auth
+- http://ldapjs.org/client.html
