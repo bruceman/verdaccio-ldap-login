@@ -6,7 +6,9 @@ Verdaccio plugin for simple ldap authenticate
 
 ## Installation
 
-> npm install verdaccio-simpleldap
+```
+npm install verdaccio-simpleldap
+```
 
 ## Usage
 Config Verdaccio auth section.
@@ -23,7 +25,9 @@ auth:
 
 ## Development
 
-> npm run build
+```
+npm run build
+```
 
 
 ## Refers

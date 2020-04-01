@@ -7,7 +7,6 @@ const ldap = require('ldapjs');
  */
 class AuthLdapPlugin {
     constructor(config, options) {
-      this.logger = options.logger;
       this.dn = config.dn || 'uid={},dc=com';
       this.client = ldap.createClient({url: config.url});
     }
@@ -27,7 +26,7 @@ class AuthLdapPlugin {
   
       this.client.bind(this.dn.replace('{}', user), password, function (err) {
         if (err) {
-          this.logger.info('login failed: ' + err);
+          console.log('login failed: ' + err);
           // fail
           cb(null, false);
         } else {
