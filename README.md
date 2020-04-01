@@ -1,6 +1,6 @@
 # verdaccio-simpleldap
 
-> Verdaccio plugin for simple ldap authenticate
+Verdaccio plugin for simple ldap authenticate
 
 ---
 
