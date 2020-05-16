@@ -1,11 +1,8 @@
 {
   "name": "verdaccio-simpleldap",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Verdaccio plugin for simple ldap auth",
   "main": "index.js",
-  "files": [
-    "lib/"
-  ],
   "engines": {
     "node": ">=10"
   },
@@ -17,16 +14,7 @@
   "license": "MIT",
   "repository": "https://github.com/bruceman/verdaccio-auth-ldap",
   "author": "bruceman",
-  "scripts": {
-    "build": "npm run lint && npm run build:js",
-    "build:js": "babel index.js -d lib",
-    "lint": "eslint index.js"
-  },
   "dependencies": {
     "ldapjs": "^1.0.2"
-  },
-  "devDependencies": {
-    "@verdaccio/babel-preset": "^8.5.0",
-    "eslint": "^6.8.0"
   }
 }
