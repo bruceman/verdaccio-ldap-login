@@ -1,5 +1,10 @@
 const ldap = require('ldapjs');
 
+// simple log utility
+function log(msg) {
+  console.log(`[verdaccio-simpleldap] - ${msg}`);
+}
+
 /**
  * Ldap Verdaccio Authenticate Plugin.
  * 
@@ -8,7 +13,7 @@ const ldap = require('ldapjs');
 class AuthLdapPlugin {
     constructor(config, options) {
       this.users = {};
-      this.url = config.url || 'ldap://127.0.0.1:1389';
+      this.url = config.url || 'ldap://127.0.0.1:389';
       this.dn = config.dn || 'uid={},dc=com';
     }
   
@@ -27,6 +32,7 @@ class AuthLdapPlugin {
 
       // already login
       if (this.users[user] === password){
+        log(`${user} logged in succesfully`);
         cb(null, [user]);
         return;
       }
@@ -35,12 +41,11 @@ class AuthLdapPlugin {
       // try login from ldap
       client.bind(this.dn.replace('{}', user), password, (err) => {
         if (err) {
-          console.log(`[${user}] login failed: ${err}`);
-          // fail
+          log(`${user} logged in failed: ${err}`);
           cb(null, false);
         } else {
-          // success
           this.users[user] = password;
+          log(`${user} logged in succesfully`);
           cb(null, [user]);
         }
       });
